@@ -4,7 +4,7 @@ export const relationships=['Assignment','Serving','Access','Realization','Trigg
 export type RelationType=typeof relationships[number];
 export type Element={id:string;type:ElementType;name:string;x?:number;y?:number};
 export type Side='top'|'right'|'bottom'|'left';
-export type Relation={id:string;type:RelationType;source:string;target:string;sourceHandle?:string;targetHandle?:string;sourceText?:string};
+export type Relation={id:string;type:RelationType;source:string;target:string;sourceHandle?:string;targetHandle?:string;sourceText?:string;reviewStatus?:'proposed'|'approved'|'rejected'};
 export type Grouping={id:string;name:string;elementIds:string[];padding?:number};
 export type Model={title:string;elements:Element[];relations:Relation[];assumptions:string[];groups?:Grouping[]};
 export function validate(m:Model){
@@ -21,6 +21,7 @@ export function validate(m:Model){
     if(!relationships.includes(r.type))errors.push('Ongeldig relatietype: '+r.type);
     if(!r.id.trim()||relationIds.has(r.id))errors.push('Ontbrekende of dubbele relatie-ID: '+r.id);
     relationIds.add(r.id);
+    if(r.reviewStatus&&!['proposed','approved','rejected'].includes(r.reviewStatus))errors.push('Ongeldige beoordelingsstatus');
     if(r.sourceHandle&&!/^s-(left|right|top|bottom)$/.test(r.sourceHandle))errors.push('Ongeldig bronaansluitpunt');
     if(r.targetHandle&&!/^t-(left|right|top|bottom)$/.test(r.targetHandle))errors.push('Ongeldig doelaansluitpunt');
     if(!ids.has(r.source)||!ids.has(r.target)){errors.push('Relatie verwijst naar een onbekend element');continue;}
