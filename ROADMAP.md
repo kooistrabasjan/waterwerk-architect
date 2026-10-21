@@ -23,7 +23,8 @@ Deze roadmap is een werkplan en geen claim dat functies al af zijn. Prioriteit: 
 - [ ] Visuele regressietests in Edge/Chrome
 
 ## Fase 2 — Formele ArchiMate 3.2
-- [ ] Volledige elementcatalogus met officiële symbolen en laagkleuren
+- [ ] Exacte officiële ArchiMate 3.2-symbolen verifiëren per element en gebruiksrechten vastleggen
+- [x] Conventionele positionering van pictogrammen rechtsboven in editor en SVG/PDF/PNG
 - [ ] Officiële relatietypen en exacte pijlpunten en lijnen
 - [ ] Semantische relatiematrix uit The Open Group-specificatie met tests
 - [ ] Scheiding model-elementen, diagramobjecten en groupings
@@ -65,3 +66,6 @@ Deze roadmap is een werkplan en geen claim dat functies al af zijn. Prioriteit: 
 
 ## Ontwerpbesluit
 Grouping is voorlopig een **visuele container**, geen ArchiMate-element met semantische relaties. Dit voorkomt dat een layout-keuze onbedoeld betekenis aan het model toevoegt. De groepsleden krijgen voorlopig geen automatisch parent-child-draggedrag.
+
+## Bron en licentie voor officiële notatie
+De Open Group 3.2-specificatie en referentiekaarten zijn de normbron. De huidige pictogramgeometrie in `src/notation.ts` is **eigen, niet geverifieerde illustratie** en mag daarom niet als exact officieel worden gepresenteerd. De volgende acceptatiestap vereist per element visuele vergelijking met de 3.2-referentiekaart, geregistreerde bron en relevante hergebruikvoorwaarden. Zie https://www.opengroup.org/archimate-licensed-downloads en https://archimate-community.pages.opengroup.org/workgroups/archimate-101/ .
