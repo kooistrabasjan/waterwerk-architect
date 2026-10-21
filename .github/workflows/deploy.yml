@@ -1,0 +1,6 @@
+name: Deploy WaterWerk Architect
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
