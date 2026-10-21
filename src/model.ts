@@ -3,8 +3,10 @@ export type ElementType=typeof types[number];
 export const relationships=['Assignment','Serving','Access','Realization','Triggering','Flow','Association','Composition','Aggregation','Influence'] as const;
 export type RelationType=typeof relationships[number];
 export type Element={id:string;type:ElementType;name:string;x?:number;y?:number};
-export type Relation={id:string;type:RelationType;source:string;target:string};
-export type Model={title:string;elements:Element[];relations:Relation[];assumptions:string[]};
+export type Side='top'|'right'|'bottom'|'left';
+export type Relation={id:string;type:RelationType;source:string;target:string;sourceHandle?:string;targetHandle?:string};
+export type Grouping={id:string;name:string;elementIds:string[]};
+export type Model={title:string;elements:Element[];relations:Relation[];assumptions:string[];groups?:Grouping[]};
 export function validate(m:Model){
   const errors:string[]=[];
   const ids=new Set<string>();
@@ -27,6 +29,7 @@ export function validate(m:Model){
     if(r.type==='Serving'&&['BusinessObject','DataObject'].includes(source.type))errors.push('Serving kan niet vanuit een passief object starten');
     if(r.type==='Triggering'&&['BusinessObject','DataObject'].includes(source.type))errors.push('Triggering kan niet vanuit een passief object starten');
   }
+  for(const g of m.groups??[]){if(!g.name.trim())errors.push('Groepsnaam ontbreekt');for(const id of g.elementIds){if(!ids.has(id))errors.push('Groep verwijst naar onbekend element: '+id);}}
   return errors;
 }
 export function color(t:ElementType){return t.startsWith('Application')||t==='DataObject'?'#d5ebff':t.startsWith('Business')?'#fff0b7':t==='Goal'||t==='Requirement'?'#eadafa':'#d8f1d7'}
