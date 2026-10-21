@@ -24,17 +24,20 @@ export const symbol:Record<ElementType,string>={
 export function glyphSvg(type:ElementType,x:number,y:number,size=24){
  return '<svg xmlns="http://www.w3.org/2000/svg" x="'+x+'" y="'+y+'" width="'+size+'" height="'+size+'" viewBox="0 0 24 24" fill="none" stroke="#254861" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+glyphPaths[type]+'"/></svg>';
 }
-export function lineStyle(type:RelationType):{stroke:string;dash?:string;marker?:'triangle'|'open'|'diamond'|'circle'}{
+export type EndMarker='triangle'|'open'|'filled'|'diamond-filled'|'diamond-open'|'dot';
+export type RelationshipStyle={stroke:string;dash?:string;start?:EndMarker;end?:EndMarker};
+export function lineStyle(type:RelationType):RelationshipStyle{
+ const stroke='#425c75';
  switch(type){
- case 'Serving':return {stroke:'#425c75',marker:'open'};
- case 'Assignment':return {stroke:'#425c75',marker:'circle'};
- case 'Realization':return {stroke:'#425c75',dash:'7 4',marker:'open'};
- case 'Access':return {stroke:'#425c75',dash:'4 4',marker:'open'};
- case 'Triggering':return {stroke:'#425c75',marker:'triangle'};
- case 'Flow':return {stroke:'#425c75',dash:'6 4',marker:'triangle'};
- case 'Influence':return {stroke:'#425c75',dash:'3 4',marker:'open'};
- case 'Aggregation':return {stroke:'#425c75',marker:'diamond'};
- case 'Composition':return {stroke:'#425c75',marker:'diamond'};
+ case 'Composition':return {stroke,start:'diamond-filled'};
+ case 'Aggregation':return {stroke,start:'diamond-open'};
+ case 'Assignment':return {stroke,start:'dot',end:'filled'};
+ case 'Realization':return {stroke,dash:'2 4',end:'triangle'};
+ case 'Serving':return {stroke,end:'open'};
+ case 'Access':return {stroke,dash:'2 4'};
+ case 'Triggering':return {stroke,end:'filled'};
+ case 'Flow':return {stroke,dash:'7 4',end:'filled'};
+ case 'Influence':return {stroke,dash:'7 4',end:'open'};
  case 'Association':return {stroke:'#667b91'};
  }
 }
