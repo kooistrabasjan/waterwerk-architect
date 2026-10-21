@@ -4,7 +4,7 @@
 
 ## Status: eerste MVP
 
-**Werkend in de broncode:** React/TypeScript-app, browsergerichte invoer, voorbeelden over peilbeheer/vergunningverlening/assetmanagement, regelgebaseerde herkenning van *expliciet genoemde bekende termen*, handmatige elementen en relaties, een interactief React Flow-diagram, basisvalidatie en lokale import van PDF, DOCX, TXT en MD.
+**Werkend in de broncode:** React/TypeScript-app, browsergerichte invoer, voorbeelden over peilbeheer/vergunningverlening/assetmanagement, regelgebaseerde herkenning van *expliciet genoemde bekende termen*, handmatige elementen en relaties, een interactief React Flow-diagram met element- en relatiebewerking en automatische ELK-indeling, basisvalidatie en lokale import van PDF, DOCX, TXT en MD.
 
 **Export:** SVG en PNG exporteren momenteel een vereenvoudigde elementenkaart **zonder relaties**, PDF een tekstueel modeloverzicht, XML een voorlopig model-only ArchiMate-uitwisselbestand zonder views of XSD-validatie, en JSON het volledige interne model **met relaties**.
 
@@ -36,3 +36,7 @@ Er zijn unit-tests toegevoegd voor voorbeelden, expliciete termherkenning en het
 ## Licentie
 
 MIT. Bibliotheken hebben hun eigen licenties.
+
+## Editor en layout
+
+Selecteer een element of relatie om eigenschappen te wijzigen of het onderdeel te verwijderen. Versleep elementen handmatig, verbind aansluitpunten en gebruik **Automatische indeling** om op basis van de huidige relaties een nieuwe layout te laten berekenen. De weergave heeft voorlopig ArchiMate-geïnspireerde symbolen; formeel conforme symbolen en relatie-eindpunten zijn nog in ontwikkeling.
