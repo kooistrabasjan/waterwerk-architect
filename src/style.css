@@ -13,3 +13,9 @@
 .react-flow__handle.archimate-handle{width:13px;height:13px;border:2px solid #fff;background:#0078d4;opacity:.55;transition:opacity .12s}
 .react-flow__node-archimate:hover .archimate-handle,.react-flow__node-archimate.selected .archimate-handle{opacity:1}
 .react-flow__pane{cursor:default}
+
+/* Vier aanhechtpunten per element; zichtbaarheid bij hover/selectie. */
+.react-flow__node-archimate .handle-top,.react-flow__node-archimate .handle-bottom{left:50%}
+.react-flow__node-archimate .handle-left,.react-flow__node-archimate .handle-right{top:50%}
+.react-flow__node-group{pointer-events:all}
+.react-flow__edge-step path{stroke-linejoin:round}
