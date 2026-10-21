@@ -11,3 +11,6 @@ describe('vector notation',()=>{
 
 import type {Model} from '../src/model';
 describe('ArchiMate relatienotatie',()=>{it('tekent source-markers voor structuurrelaties',()=>{const m:Model={title:'Test',elements:[{id:'a',type:'ApplicationComponent',name:'Geheel'},{id:'b',type:'ApplicationComponent',name:'Deel'}],relations:[{id:'c',type:'Composition',source:'a',target:'b'},{id:'d',type:'Aggregation',source:'a',target:'b'},{id:'e',type:'Assignment',source:'a',target:'b'}],assumptions:[]};const x=svg(m);expect(x).toContain('marker-start="url(#filled-diamond)"');expect(x).toContain('marker-start="url(#open-diamond)"');expect(x).toContain('marker-start="url(#assignment-dot)"');});});
+
+import {lineStyle} from '../src/notation';
+describe('relatie-eindpunten volgens notatie',()=>{it('gebruikt holle driehoek bij Realization',()=>{expect(lineStyle('Realization').end).toBe('triangle');expect(lineStyle('Realization').dash).toBeTruthy();});it('gebruikt gevulde pijl bij Triggering en Flow',()=>{expect(lineStyle('Triggering').end).toBe('filled');expect(lineStyle('Flow').end).toBe('filled');});it('Access heeft niet automatisch een richting',()=>{expect(lineStyle('Access').end).toBeUndefined()});});
