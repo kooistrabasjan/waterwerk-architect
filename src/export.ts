@@ -1,3 +1,4 @@
+import {routeOrthogonal,routePath} from './router';
 import {symbol,lineStyle} from './notation';
 import {archimateXml} from './archimateXml';
 import type{Model}from './model';import {color} from './model';
@@ -13,7 +14,7 @@ export function svg(m:Model){
   const side=(handle:string|undefined,fallback:string)=>(handle??fallback).split('-').at(-1);const sa=side(r.sourceHandle,'right'),ta=side(r.targetHandle,'left');
   const port=(p:{x:number;y:number},d:string|undefined)=>({x:p.x+(d==='left'?0:d==='right'?215:107.5)-minX,y:p.y+(d==='top'?0:d==='bottom'?90:45)-minY});
   const start=port(a,sa),end=port(b,ta);const ax=start.x,ay=start.y,bx=end.x,by=end.y;
-  const horizontal=sa==='left'||sa==='right';const mid=horizontal?(ax+bx)/2:(ay+by)/2;const path=horizontal?`M ${ax} ${ay} H ${mid} V ${by} H ${bx}`:`M ${ax} ${ay} V ${mid} H ${bx} V ${by}`;
+  const obstacles=m.elements.filter(e=>e.id!==r.source&&e.id!==r.target).map(e=>{const q=coords.get(e.id)!;return {x:q.x-minX,y:q.y-minY,width:215,height:90}});const path=routePath(routeOrthogonal({x:ax,y:ay},{x:bx,y:by},obstacles));
   const style=lineStyle(r.type);
   return '<g><path d="'+path+'" fill="none" stroke="'+style.stroke+'" stroke-width="2"'+(style.dash?' stroke-dasharray="'+style.dash+'"':'')+(style.marker?' marker-end="url(#arrow)"':'')+'/><text x="'+((ax+bx)/2)+'" y="'+((ay+by)/2-8)+'" text-anchor="middle" font-size="11" fill="#354b60">'+escape(r.type)+'</text></g>';
  }).join('');
