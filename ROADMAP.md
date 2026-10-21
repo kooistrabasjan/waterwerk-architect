@@ -8,6 +8,8 @@ Deze roadmap is een werkplan en geen claim dat functies al af zijn. Prioriteit: 
 - [x] Orthogonale Manhattan-lijnen in editor
 - [x] Vier zijden als bron- en doelaansluitpunten
 - [x] Visuele groupings met naam en selecteerbare elementen
+- [x] Bewerkbaar JSON-model opnieuw openen met groepsleden en posities
+- [ ] Complete groupings met hun leden kunnen verslepen
 - [ ] Groepen interactief vergroten en verkleinen, leden in/uit groep slepen
 - [ ] Meerdere geselecteerde elementen gezamenlijk verplaatsen
 - [ ] Undo/redo voor alle modelwijzigingen
