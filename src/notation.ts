@@ -1,20 +1,20 @@
 import type {ElementType,RelationType} from './model';
-/** Stylized vector pictograms, inspired by ArchiMate categories (not certified official artwork). */
+/** ArchiMate 3.2-style geometry adapted from MIT-licensed Archi figure icon implementations.\n * Source: archimatetool/archi and ThomasRohde/archi-online src/canvas/figures/icons.tsx.\n * Simplified SVG path translations; exact conformance still requires visual reference verification. */
 export const glyphPaths:Record<ElementType,string>={
- BusinessActor:'M12 4a4 4 0 1 1 0 8a4 4 0 0 1 0-8 M4 23v-3a8 8 0 0 1 16 0v3',
- BusinessRole:'M12 3l8 5v13H4V8z M8 11h8 M8 15h8',
- BusinessProcess:'M5 8h14l-4-4 M19 8l-4 4 M19 16H5l4-4 M5 16l4 4',
- BusinessService:'M4 14a8 8 0 0 1 16 0 M4 14v5h16v-5',
- BusinessObject:'M5 3h10l4 4v14H5z M15 3v5h4 M8 12h8 M8 16h8',
- ApplicationComponent:'M5 4h15v16H5z M2 8h6v4H2z M2 15h6v4H2z',
- ApplicationService:'M4 14a8 8 0 0 1 16 0 M4 14v5h16v-5 M10 16h4',
- DataObject:'M5 3h10l4 4v14H5z M15 3v5h4 M8 12h8',
- Node:'M7 3h10l5 9-5 9H7l-5-9z',
- Device:'M3 5h18v12H3z M8 21h8 M12 17v4',
- SystemSoftware:'M4 4h16v16H4z M4 9h16 M8 6h1 M12 6h1 M7 13h10 M7 16h7',
- TechnologyService:'M4 14a8 8 0 0 1 16 0 M4 14v5h16v-5 M8 16h8',
- Goal:'M4 12a8 8 0 1 0 16 0a8 8 0 1 0-16 0 M8 12h8 M12 8v8',
- Requirement:'M5 3h14v18H5z M8 12l3 3 5-6'
+ BusinessActor:'M12 2 A3 3 0 1 1 12 8 A3 3 0 1 1 12 2 M12 8 V16 M12 16 L8 22 M12 16 L16 22 M8 12 H16',
+ BusinessRole:'M5 5 C1 5 1 19 5 19 H17 M5 5 H17 M17 5 C21 5 21 19 17 19 C13 19 13 5 17 5',
+ BusinessProcess:'M2 9 H12 V5 L22 12 L12 19 V15 H2 Z',
+ BusinessService:'M8 6 H16 A5 5 0 0 1 21 11 V13 A5 5 0 0 1 16 18 H8 A5 5 0 0 1 3 13 V11 A5 5 0 0 1 8 6 Z',
+ BusinessObject:'M3 4 H21 V20 H3 Z M3 10 H21',
+ ApplicationComponent:'M5 3 H21 V21 H5 Z M2 6 H9 V9 H2 Z M2 13 H9 V16 H2 Z',
+ ApplicationService:'M8 6 H16 A5 5 0 0 1 21 11 V13 A5 5 0 0 1 16 18 H8 A5 5 0 0 1 3 13 V11 A5 5 0 0 1 8 6 Z',
+ DataObject:'M3 4 H21 V20 H3 Z M3 10 H21',
+ Node:'M4 7 H17 V20 H4 Z M4 7 L8 3 H21 V16 L17 20 M17 7 L21 3',
+ Device:'M4 4 H20 Q21 4 21 5 V15 H3 V5 Q3 4 4 4 Z M3 15 L1 20 H23 L21 15',
+ SystemSoftware:'M4 5 A8 8 0 1 1 4 21 A8 8 0 1 1 4 5 M9 3 A8 8 0 0 1 20 15',
+ TechnologyService:'M8 6 H16 A5 5 0 0 1 21 11 V13 A5 5 0 0 1 16 18 H8 A5 5 0 0 1 3 13 V11 A5 5 0 0 1 8 6 Z',
+ Goal:'M3 12 A9 9 0 1 0 21 12 A9 9 0 1 0 3 12 M7 12 A5 5 0 1 0 17 12 A5 5 0 1 0 7 12 M10 12 A2 2 0 1 0 14 12 A2 2 0 1 0 10 12',
+ Requirement:'M5 7 H21 L17 18 H1 Z'
 };
 export const symbol:Record<ElementType,string>={
  BusinessActor:'Actor',BusinessRole:'Role',BusinessProcess:'Process',BusinessService:'Service',BusinessObject:'Object',
