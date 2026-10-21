@@ -8,3 +8,6 @@ describe('vector notation',()=>{
  it('provides a path for every supported element',()=>{for(const t of types){expect(glyphPaths[t].length).toBeGreaterThan(8);expect(glyphSvg(t,5,6)).toContain('<path d=');}});
  it('renders matching symbols in SVG diagrams',()=>{const output=svg({title:'View',elements:[{id:'a',type:'ApplicationComponent',name:'Applicatie'}],relations:[],assumptions:[]});expect(output).toContain('svg');expect(output).toContain('Applicatie');expect(output).toContain('Applicatie');});
 });
+
+import type {Model} from '../src/model';
+describe('ArchiMate relatienotatie',()=>{it('tekent source-markers voor structuurrelaties',()=>{const m:Model={title:'Test',elements:[{id:'a',type:'ApplicationComponent',name:'Geheel'},{id:'b',type:'ApplicationComponent',name:'Deel'}],relations:[{id:'c',type:'Composition',source:'a',target:'b'},{id:'d',type:'Aggregation',source:'a',target:'b'},{id:'e',type:'Assignment',source:'a',target:'b'}],assumptions:[]};const x=svg(m);expect(x).toContain('marker-start="url(#filled-diamond)"');expect(x).toContain('marker-start="url(#open-diamond)"');expect(x).toContain('marker-start="url(#assignment-dot)"');});});
