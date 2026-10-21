@@ -40,3 +40,7 @@ MIT. Bibliotheken hebben hun eigen licenties.
 ## Editor en layout
 
 Selecteer een element of relatie om eigenschappen te wijzigen of het onderdeel te verwijderen. Versleep elementen handmatig, verbind aansluitpunten en gebruik **Automatische indeling** om op basis van de huidige relaties een nieuwe layout te laten berekenen. De weergave heeft voorlopig ArchiMate-geïnspireerde symbolen; formeel conforme symbolen en relatie-eindpunten zijn nog in ontwikkeling.
+
+## Groeperen (nieuwe bediening)
+
+Klik boven het diagram op **Groeperen ↓**. In het paneel **Elementen groeperen** vink je de gewenste elementen aan, geef je de grouping een naam en klik je op **Grouping maken**. Onder **Bestaande groupings** zijn groepen zichtbaar en verwijderbaar. De groepsnaam kan ook via het bewerkingspaneel worden gewijzigd na selectie uit de lijst. Shift-selectie is hiervoor niet meer nodig. Groupings zijn alleen een visuele ordening, niet hetzelfde als een ArchiMate Composition of Aggregation-relatie. Een groep beweegt voorlopig niet automatisch met de leden mee, maar het kader wordt op basis van hun actuele posities berekend.
