@@ -19,3 +19,15 @@
 .react-flow__node-archimate .handle-left,.react-flow__node-archimate .handle-right{top:50%}
 .react-flow__node-group{pointer-events:all}
 .react-flow__edge-step path{stroke-linejoin:round}
+
+.grouping-panel{border-color:#a9c9e5;background:#f8fbff}
+.grouping-panel .group-checklist{max-height:220px;overflow:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin:12px 0}
+.grouping-panel .group-choice{margin:0;display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #d7e3ed;padding:10px;border-radius:7px;cursor:pointer}
+.grouping-panel .group-choice input{width:17px;height:17px;margin:0;flex:none;accent-color:#0078d4}
+.grouping-panel .group-choice span{font-weight:600;flex:1}
+.grouping-panel .group-choice small{font-size:10px;color:#73879a}
+.grouping-panel button.primary{background:#0078d4;color:white;border-color:#0078d4}
+.group-list{margin-top:18px}
+.group-entry{display:flex;gap:8px;align-items:center;margin:6px 0}
+.group-entry button:first-child{flex:1;text-align:left;justify-content:flex-start}
+.react-flow__node-group{pointer-events:none!important}
