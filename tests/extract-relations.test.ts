@@ -6,6 +6,7 @@ describe('documentherkenning met onderlinge relaties',()=>{
   const m=extract('Het zaaksysteem registreert de vergunningaanvraag.','Vergunningverlening');
   expect(m.elements).toHaveLength(2);
   expect(m.relations).toMatchObject([{type:'Access'}]);
+  expect(m.relations[0].sourceText).toBe('Het zaaksysteem registreert de vergunningaanvraag');
   expect(validate(m)).toEqual([]);
  });
  it('tekent geen relaties tussen alleen opgesomde namen',()=>{
