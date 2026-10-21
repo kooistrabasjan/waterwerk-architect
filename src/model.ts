@@ -21,6 +21,8 @@ export function validate(m:Model){
     if(!relationships.includes(r.type))errors.push('Ongeldig relatietype: '+r.type);
     if(!r.id.trim()||relationIds.has(r.id))errors.push('Ontbrekende of dubbele relatie-ID: '+r.id);
     relationIds.add(r.id);
+    if(r.sourceHandle&&!/^s-(left|right|top|bottom)$/.test(r.sourceHandle))errors.push('Ongeldig bronaansluitpunt');
+    if(r.targetHandle&&!/^t-(left|right|top|bottom)$/.test(r.targetHandle))errors.push('Ongeldig doelaansluitpunt');
     if(!ids.has(r.source)||!ids.has(r.target)){errors.push('Relatie verwijst naar een onbekend element');continue;}
     if(r.source===r.target)errors.push('Zelfrelatie niet toegestaan in deze editor');
     const source=m.elements.find(e=>e.id===r.source)!;
