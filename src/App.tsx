@@ -1,5 +1,5 @@
 import{useMemo,useState}from 'react';
-import ReactFlow,{Background,Controls,MiniMap,MarkerType,type Edge,type Node}from '@xyflow/react';
+import {ReactFlow,Background,Controls,MiniMap,MarkerType,type Edge,type Node} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import{Droplets,Upload,Plus,Trash2,Download}from 'lucide-react';
 import{types,relationships,validate,color,type ElementType,type RelationType,type Model}from './model';
