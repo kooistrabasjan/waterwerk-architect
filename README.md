@@ -6,9 +6,9 @@
 
 **Werkend in de broncode:** React/TypeScript-app, browsergerichte invoer, voorbeelden over peilbeheer/vergunningverlening/assetmanagement, regelgebaseerde herkenning van *expliciet genoemde bekende termen*, handmatige elementen en relaties, een interactief React Flow-diagram, basisvalidatie en lokale import van PDF, DOCX, TXT en MD.
 
-**Export:** SVG en PNG exporteren momenteel een vereenvoudigde elementenkaart **zonder relaties**, PDF een tekstueel modeloverzicht en JSON het volledige interne model **met relaties**.
+**Export:** SVG en PNG exporteren momenteel een vereenvoudigde elementenkaart **zonder relaties**, PDF een tekstueel modeloverzicht, XML een voorlopig model-only ArchiMate-uitwisselbestand zonder views of XSD-validatie, en JSON het volledige interne model **met relaties**.
 
-**Nog niet geïmplementeerd:** WebLLM/WebGPU-AI, de volledige officiële ArchiMate 3.2-elementen-/relatiematrix, ArchiMate-notatie en XML-uitwisselformaat met XSD-validatie, ELK-automatische indeling en diagramgetrouwe PDF-export. Regelgebaseerde herkenning is geen AI. Deze versie is niet geschikt om formeel gevalideerde ArchiMate-modellen te leveren.
+**Nog niet geïmplementeerd:** WebLLM/WebGPU-AI, de volledige officiële ArchiMate 3.2-elementen-/relatiematrix, ArchiMate-notatie, diagrammen in ArchiMate XML, XSD-validatie en bevestigde Archi-import, ELK-automatische indeling en diagramgetrouwe PDF-export. Regelgebaseerde herkenning is geen AI. Deze versie is niet geschikt om formeel gevalideerde ArchiMate-modellen te leveren.
 
 ## Lokaal ontwikkelen
 
@@ -31,7 +31,7 @@ Er is geen backend, tracking, gebruikersaccount of blijvende modelopslag. Docume
 
 ## Tests
 
-Er zijn drie unit-tests toegevoegd voor voorbeelden, expliciete termherkenning en het afwijzen van ongeldige relatieverwijzingen. Een geslaagde CI-run of live-publicatie moet nog worden vastgesteld.
+Er zijn unit-tests toegevoegd voor voorbeelden, expliciete termherkenning en het afwijzen van ongeldige relatieverwijzingen. Een geslaagde CI-run of live-publicatie moet nog worden vastgesteld.
 
 ## Licentie
 
