@@ -3,7 +3,7 @@ import {validate,type ElementType,type Model,type RelationType} from './model';
 const vocabulary:[RegExp,ElementType,string][]=[
  [/peilbeheerder/i,'BusinessRole','Peilbeheerder'],[/vergunningverlener/i,'BusinessRole','Vergunningverlener'],[/inspecteurs?/i,'BusinessRole','Inspecteur'],[/onderhoudsplanners?/i,'BusinessRole','Onderhoudsplanner'],[/burgers?|organisaties?|aanvragers?/i,'BusinessActor','Aanvrager'],
  [/telemetriesysteem/i,'ApplicationComponent','Telemetriesysteem'],[/peilbeheerapplicatie/i,'ApplicationComponent','Peilbeheerapplicatie'],[/zaaksysteem/i,'ApplicationComponent','Zaaksysteem'],[/assetmanagementsysteem/i,'ApplicationComponent','Assetmanagementsysteem'],
- [/meetstations?/i,'Device','Meetstation'],[/waterstanden|waterstandgegevens/i,'DataObject','Waterstanden'],[/vergunningaanvragen?/i,'BusinessObject','Vergunningaanvraag'],[/besluiten?\b/i,'BusinessObject','Besluit'],[/bevindingen/i,'BusinessObject','Inspectiebevindingen'],
+ [/meetstations?/i,'Device','Meetstation'],[/waterstanden|waterstandgegevens/i,'DataObject','Waterstanden'],[/vergunningaanvra(?:ag|gen)/i,'BusinessObject','Vergunningaanvraag'],[/besluiten?\b/i,'BusinessObject','Besluit'],[/bevindingen/i,'BusinessObject','Inspectiebevindingen'],
  [/inspecties?|inspecteren/i,'BusinessProcess','Inspecteren'],[/onderhoudswerkzaamheden|onderhoud voorbereiden/i,'BusinessProcess','Onderhoud voorbereiden']
 ];
 const interaction=/\b(ondersteunt|ondersteunen|gebruikt|gebruiken|registreert|registreren|verwerkt|verwerken|levert|leveren|ontvangt|ontvangen|raadpleegt|raadplegen|verzorgt|verzorgen|voert|voeren|beoordeelt|beoordelen|beheert|beheren|meet|meten|stuurt|sturen|wisselt|uitwisseling|koppeling|gekoppeld|doorsturen|beschikbaar|invoeren|inzien)\b/i;
