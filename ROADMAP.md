@@ -72,3 +72,6 @@ De Open Group 3.2-specificatie en referentiekaarten zijn de normbron. De huidige
 
 ## Implementatie-notatie (21 oktober 2026)
 De icoonvormen voor de 14 ondersteunde typen zijn aangepast aan de vormen uit de open-source Archi-editor (MIT), op basis van de implementatiereferentie [archi-online](https://github.com/ThomasRohde/archi-online/blob/main/src/canvas/figures/icons.tsx), die de Archi-figuurklassen overneemt. De SVG-paden zijn voor WaterWerk handmatig vertaald en deels vereenvoudigd. Dit is **niet** hetzelfde als een door The Open Group gecertificeerde notatie-implementatie. Controle tegen alle figuren in de officiële 3.2-referentiekaart en correctheid van relatie-eindpunten blijven openstaande acceptatiepunten. Bronprojecten: https://github.com/archimatetool/archi (MIT) en https://github.com/ThomasRohde/archi-online (MIT); zie hun licentiebestanden voor voorwaarden.
+
+### Brongetrouwe Archi-pictogrammen
+De editor gebruikt nu `src/ArchiIcons.tsx`, afgeleid van de MIT-gelicentieerde icoonimplementatie van Archi/archi-online. Dit vervangt de eerdere vereenvoudigde path-implementatie in `src/notation.ts` voor de actuele weergave en SVG/PNG/PDF-export. De volledige copyright- en licentietekst staat in `THIRD_PARTY_NOTICES.md`. Het zijn Archi-brongetrouwe symbolen; erkenning of certificering door The Open Group is niet geclaimd.
