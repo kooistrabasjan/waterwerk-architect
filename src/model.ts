@@ -4,7 +4,7 @@ export const relationships=['Assignment','Serving','Access','Realization','Trigg
 export type RelationType=typeof relationships[number];
 export type Element={id:string;type:ElementType;name:string;x?:number;y?:number};
 export type Side='top'|'right'|'bottom'|'left';
-export type Relation={id:string;type:RelationType;source:string;target:string;sourceHandle?:string;targetHandle?:string};
+export type Relation={id:string;type:RelationType;source:string;target:string;sourceHandle?:string;targetHandle?:string;sourceText?:string};
 export type Grouping={id:string;name:string;elementIds:string[];padding?:number};
 export type Model={title:string;elements:Element[];relations:Relation[];assumptions:string[];groups?:Grouping[]};
 export function validate(m:Model){
