@@ -5,7 +5,7 @@ import {parseModelJson} from './importModel';
 import {layoutModel} from './layout';
 import {symbol,lineStyle} from './notation';
 import{memo,useEffect,useMemo,useState}from 'react';
-import {ReactFlow,Background,Controls,MiniMap,MarkerType,Handle,Position,BaseEdge,useNodesState,type Edge,type EdgeProps,type Node,type NodeProps} from '@xyflow/react';
+import {ReactFlow,Background,Controls,MiniMap,MarkerType,Handle,Position,BaseEdge,EdgeLabelRenderer,useNodesState,type Edge,type EdgeProps,type Node,type NodeProps} from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import{Droplets,Upload,Plus,Trash2,Download}from 'lucide-react';
 import{types,relationships,validate,color,type ElementType,type RelationType,type Model}from './model';
@@ -13,7 +13,7 @@ import{examples}from './examples';import{extract}from './extract';import{readDoc
 const sides=[{side:'left',position:Position.Left},{side:'right',position:Position.Right},{side:'top',position:Position.Top},{side:'bottom',position:Position.Bottom}] as const;
 const ArchimateNode=memo(({data}:NodeProps)=>{const item=data as {label:string;kind:ElementType};return <div className="archimate-node">{sides.map(h=><Handle key={"t-"+h.side} id={"t-"+h.side} type="target" position={h.position} className={"archimate-handle handle-"+h.side} style={{transform:h.side==="top"||h.side==="bottom"?"translate(-50%,-50%)":"translate(-50%,-50%)"}}/>)}<span className="archimate-node-symbol" aria-hidden="true">{symbol[item.kind]}</span><span className="archimate-node-copy"><small>{item.kind}</small><strong>{item.label}</strong></span>{sides.map(h=><Handle key={"s-"+h.side} id={"s-"+h.side} type="source" position={h.position} className={"archimate-handle handle-"+h.side}/>)}</div>});
 const GroupNode=memo(({data}:NodeProps)=><div className="group-shell"><div className="group-drag-handle" title="Sleep deze balk om de hele grouping te verplaatsen">⋮⋮ {String(data.label)} <span>Verplaats grouping</span></div></div>);
-const ManhattanEdge=memo(({sourceX,sourceY,targetX,targetY,id,style,markerEnd,data}:EdgeProps)=>{const boxes=(data?.obstacles??[]) as Box[];const points=routeOrthogonal({x:sourceX,y:sourceY},{x:targetX,y:targetY},boxes);return <BaseEdge id={id} path={routePath(points)} style={style} markerEnd={markerEnd}/>});
+const ManhattanEdge=memo(({sourceX,sourceY,targetX,targetY,id,style,markerEnd,data,label}:EdgeProps)=>{const boxes=(data?.obstacles??[]) as Box[];const points=routeOrthogonal({x:sourceX,y:sourceY},{x:targetX,y:targetY},boxes);const middle=points[Math.floor(points.length/2)];return <><BaseEdge id={id} path={routePath(points)} style={style} markerEnd={markerEnd}/>{label&&<EdgeLabelRenderer><div className="manhattan-label" style={{position:'absolute',transform:'translate(-50%, -50%)',left:middle.x,top:middle.y}}>{label}</div></EdgeLabelRenderer>}</>});
 const edgeTypes={manhattan:ManhattanEdge};
 const nodeTypes={archimate:ArchimateNode,group:GroupNode};
 const empty:Model={title:'Architectuurview',elements:[],relations:[],assumptions:[]};
