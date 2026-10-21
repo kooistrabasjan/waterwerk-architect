@@ -1,3 +1,4 @@
+import {defaultLayerHandles} from './layout';
 import {officialIconSvg} from './ArchiIcons';
 import {routeOrthogonal,routePath} from './router';
 import {lineStyle} from './notation';
@@ -12,7 +13,7 @@ export function svg(m:Model){
  const w=maxX-minX,h=maxY-minY;
  const lines=m.relations.map(r=>{
   const a=coords.get(r.source),b=coords.get(r.target);if(!a||!b)return '';
-  const side=(handle:string|undefined,fallback:string)=>(handle??fallback).split('-').at(-1);const sa=side(r.sourceHandle,'right'),ta=side(r.targetHandle,'left');
+  const side=(handle:string|undefined,fallback:string)=>(handle??fallback).split('-').at(-1);const defaults=defaultLayerHandles(m,r.source,r.target);const sa=side(r.sourceHandle,defaults.sourceHandle.split('-')[1]),ta=side(r.targetHandle,defaults.targetHandle.split('-')[1]);
   const port=(p:{x:number;y:number},d:string|undefined)=>({x:p.x+(d==='left'?0:d==='right'?215:107.5)-minX,y:p.y+(d==='top'?0:d==='bottom'?90:45)-minY});
   const start=port(a,sa),end=port(b,ta);const ax=start.x,ay=start.y,bx=end.x,by=end.y;
   const obstacles=m.elements.filter(e=>e.id!==r.source&&e.id!==r.target).map(e=>{const q=coords.get(e.id)!;return {x:q.x-minX,y:q.y-minY,width:215,height:90}});const path=routePath(routeOrthogonal({x:ax,y:ay},{x:bx,y:by},obstacles));
