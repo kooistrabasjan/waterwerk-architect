@@ -1,5 +1,6 @@
+import {officialIconSvg} from './ArchiIcons';
 import {routeOrthogonal,routePath} from './router';
-import {glyphSvg,lineStyle} from './notation';
+import {lineStyle} from './notation';
 import {archimateXml} from './archimateXml';
 import type{Model}from './model';import {color} from './model';
 const escape=(x:string)=>x.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
@@ -21,7 +22,7 @@ export function svg(m:Model){
  const groups=(m.groups??[]).map(g=>{const members=m.elements.filter(e=>g.elementIds.includes(e.id));if(!members.length)return '';const xs=members.map(e=>coords.get(e.id)!.x),ys=members.map(e=>coords.get(e.id)!.y);const pad=g.padding??30;const x=Math.min(...xs)-minX-pad,y=Math.min(...ys)-minY-pad-25,width=Math.max(...xs)-Math.min(...xs)+215+2*pad,height=Math.max(...ys)-Math.min(...ys)+90+2*pad+25;return '<g><rect x="'+x+'" y="'+y+'" width="'+width+'" height="'+height+'" rx="12" fill="#eaf4fc" fill-opacity=".6" stroke="#5687b2" stroke-dasharray="7 4"/><text x="'+(x+10)+'" y="'+(y+22)+'" font-size="14" fill="#174a74">'+escape(g.name)+'</text></g>'}).join('');
  const nodes=m.elements.map(e=>{
  const p=coords.get(e.id)!;const x=p.x-minX,y=p.y-minY;
- return '<g><rect x="'+x+'" y="'+y+'" width="215" height="90" rx="8" fill="'+color(e.type)+'" stroke="#7891a6"/>'+glyphSvg(e.type,x+180,y+6,24)+'<text x="'+(x+12)+'" y="'+(y+28)+'" font-size="12" fill="#243247">'+escape(e.type)+'</text><text x="'+(x+12)+'" y="'+(y+57)+'" font-size="14" fill="#243247">'+escape(e.name)+'</text></g>';
+ return '<g><rect x="'+x+'" y="'+y+'" width="215" height="90" rx="8" fill="'+color(e.type)+'" stroke="#7891a6"/>'+officialIconSvg(e.type,x+180,y+6,24)+'<text x="'+(x+12)+'" y="'+(y+28)+'" font-size="12" fill="#243247">'+escape(e.type)+'</text><text x="'+(x+12)+'" y="'+(y+57)+'" font-size="14" fill="#243247">'+escape(e.name)+'</text></g>';
  }).join('');
  return '<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#425c75"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><text x="25" y="34" font-size="22" fill="#243247">'+escape(m.title)+'</text>'+groups+lines+nodes+'</svg>';
 }
