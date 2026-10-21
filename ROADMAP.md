@@ -75,3 +75,6 @@ De icoonvormen voor de 14 ondersteunde typen zijn aangepast aan de vormen uit de
 
 ### Brongetrouwe Archi-pictogrammen
 De editor gebruikt nu `src/ArchiIcons.tsx`, afgeleid van de MIT-gelicentieerde icoonimplementatie van Archi/archi-online. Dit vervangt de eerdere vereenvoudigde path-implementatie in `src/notation.ts` voor de actuele weergave en SVG/PNG/PDF-export. De volledige copyright- en licentietekst staat in `THIRD_PARTY_NOTICES.md`. Het zijn Archi-brongetrouwe symbolen; erkenning of certificering door The Open Group is niet geclaimd.
+
+### Verbindingen kiezen en bijwerken (21 oktober 2026)
+De editor heeft nu in het paneel **Relatie toevoegen** twee keuzelijsten voor de bron- en doelzijde (links, rechts, boven, onder). Een geselecteerde relatie krijgt dezelfde instellingen in **Geselecteerd onderdeel bewerken**. De vastgelegde handles zijn onderdeel van de JSON-export en worden gevalideerd. De visuele editor en SVG/PNG/PDF export nemen deze zijden over. Browsertests blijven nodig om muisinteracties en de groepsslepen-functie volledig te bevestigen.
