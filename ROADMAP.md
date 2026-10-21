@@ -11,7 +11,9 @@ Deze roadmap is een werkplan en geen claim dat functies al af zijn. Prioriteit: 
 - [x] Bewerkbaar JSON-model opnieuw openen met groepsleden en posities
 - [x] Groupings met pijltjes als geheel verplaatsen (stappen van 30 px)
 - [x] Grouping via sleepbalk verslepen met alle leden (basisimplementatie, browsertest nog nodig)
-- [ ] Groepen interactief vergroten en verkleinen, leden in/uit groep slepen
+- [x] Groepsmarges instellen via bewerkingspaneel (15–150 px)
+- [ ] Groupings direct met de muis vergroten en verkleinen
+- [ ] Leden in/uit groep slepen
 - [ ] Meerdere geselecteerde elementen gezamenlijk verplaatsen
 - [ ] Undo/redo voor alle modelwijzigingen
 - [ ] Relatieroutering met vrije waypoints en obstakelvermijding
