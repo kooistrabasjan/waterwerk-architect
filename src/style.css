@@ -31,3 +31,5 @@
 .group-entry{display:flex;gap:8px;align-items:center;margin:6px 0}
 .group-entry button:first-child{flex:1;text-align:left;justify-content:flex-start}
 .react-flow__node-group{pointer-events:none!important}
+
+.group-move{display:inline-grid;grid-template-columns:repeat(2,28px);gap:3px;flex:none}.group-move button{font-size:14px;padding:3px;min-height:27px;min-width:27px}.group-entry{flex-wrap:wrap}.group-entry>button:first-child{min-width:140px}
