@@ -36,3 +36,11 @@ export async function layoutModel(model:Model):Promise<Model>{
  }
  return {...model,elements:model.elements.map(e=>({...e,...positions.get(e.id)}))};
 }
+
+/** Default connection directions that follow vertical architectural bands. */
+export function defaultLayerHandles(model:Model,sourceId:string,targetId:string){
+ const from=model.elements.find(e=>e.id===sourceId),to=model.elements.find(e=>e.id===targetId);
+ if(!from||!to)return {sourceHandle:'s-right',targetHandle:'t-left'};
+ const a=layerOrder.indexOf(layerFor(from.type)),b=layerOrder.indexOf(layerFor(to.type));
+ return a<b?{sourceHandle:'s-bottom',targetHandle:'t-top'}:a>b?{sourceHandle:'s-top',targetHandle:'t-bottom'}:{sourceHandle:'s-right',targetHandle:'t-left'};
+}
