@@ -40,7 +40,7 @@ export function extract(source:string,title:string):Model{
    const key=from.id+'|'+to.id+'|'+type;
    if(seen.has(key))continue;
    seen.add(key);
-   relations.push({id:'r'+relations.length,source:from.id,target:to.id,type});
+   relations.push({id:'r'+relations.length,source:from.id,target:to.id,type,sourceText:sentence});
   }
  }
  const draft:Model={title,elements,relations,assumptions:[]};
