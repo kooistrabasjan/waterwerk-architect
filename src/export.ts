@@ -16,7 +16,7 @@ export function svg(m:Model){
  }).join('');
  const nodes=m.elements.map(e=>{
  const p=coords.get(e.id)!;const x=p.x-minX,y=p.y-minY;
- return '<g><rect x="'+x+'" y="'+y+'" width="215" height="90" rx="8" fill="'+color(e.type)+'" stroke="#7891a6"/><text x="'+(x+10)+'" y="'+(y+24)+'" font-size="13" fill="#243247">'+escape(symbol[e.type])+' '+e.type)+'</text><text x="'+(x+10)+'" y="'+(y+57)+'" font-size="14" fill="#243247">'+escape(e.name)+'</text></g>';
+ return '<g><rect x="'+x+'" y="'+y+'" width="215" height="90" rx="8" fill="'+color(e.type)+'" stroke="#7891a6"/><text x="'+(x+10)+'" y="'+(y+24)+'" font-size="13" fill="#243247">'+escape(symbol[e.type]+' '+e.type)+'</text><text x="'+(x+10)+'" y="'+(y+57)+'" font-size="14" fill="#243247">'+escape(e.name)+'</text></g>';
  }).join('');
  return '<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10" fill="none" stroke="#425c75"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><text x="25" y="34" font-size="22" fill="#243247">'+escape(m.title)+'</text>'+lines+nodes+'</svg>';
 }
