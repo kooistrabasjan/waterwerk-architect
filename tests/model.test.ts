@@ -2,7 +2,7 @@ import {describe,it,expect} from 'vitest';import {validate} from '../src/model';
 
 
 describe('referentiële modelintegriteit',()=>{
-  it('wijst dubbele element-ID's af',()=>{
+  it("wijst dubbele element-ID's af",()=>{
     expect(validate({title:'x',elements:[{id:'e1',type:'BusinessRole',name:'A'},{id:'e1',type:'BusinessRole',name:'B'}],relations:[],assumptions:[]})).toContain('Ontbrekende of dubbele element-ID: e1');
   });
   it('wijst ongeldige typen af, ook bij ongeldige JSON',()=>{
