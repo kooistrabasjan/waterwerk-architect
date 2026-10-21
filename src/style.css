@@ -46,3 +46,5 @@
 .relation-ports{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.relation-ports label{min-width:0}.relation-ports select{width:100%}
 
 .react-flow__node-lane{pointer-events:none!important;z-index:-100!important}.layer-lane-label{position:absolute;top:9px;left:14px;font-weight:700;font-size:13px;color:#26475d;background:#ffffffdd;border-radius:6px;padding:4px 10px}
+
+.relation-review{display:flex;flex-direction:column;gap:8px;padding:10px;margin:10px 0;border:1px solid #d7e2e9;border-radius:8px;background:#f7fafb}.relation-review .buttons{display:flex;flex-wrap:wrap;gap:6px}.relation-review button{font-size:12px}
