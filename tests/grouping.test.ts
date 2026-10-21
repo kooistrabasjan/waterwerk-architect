@@ -26,3 +26,17 @@ describe('groepsverplaatsing',()=>{
   expect(moveGrouping(model,'g',0,0)).toBe(model);
  });
 });
+
+import {validate} from '../src/model';
+import {svg} from '../src/export';
+describe('instelbare groepsruimte',()=>{
+ it('houdt marge in model en SVG-export',()=>{
+  const adjusted={...model,groups:[{id:'g',name:'Peilbeheer',elementIds:['a','b'],padding:80}]};
+  expect(validate(adjusted)).toEqual([]);
+  expect(svg(adjusted)).toContain('Peilbeheer');
+ });
+ it('wijst een negatieve marge af',()=>{
+  const wrong={...model,groups:[{id:'g',name:'Peilbeheer',elementIds:['a'],padding:-4}]};
+  expect(validate(wrong).length).toBeGreaterThan(0);
+ });
+});
